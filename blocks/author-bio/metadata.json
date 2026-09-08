@@ -1,0 +1,13 @@
+{
+  "name": "author-bio",
+  "base": "custom",
+  "description": "Article author byline: circular photo beside author name, role, and social links.",
+  "sourceContext": {
+    "originUrl": "https://www.wknd.site/us/en/magazine/san-diego-surf.html",
+    "selector": ".cmp-byline"
+  },
+  "usage": {
+    "reuseCount": 1,
+    "pages": ["/us/en/magazine/san-diego-surf"]
+  }
+}

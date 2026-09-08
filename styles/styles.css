@@ -11,46 +11,41 @@
  */
 
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  /* colors — migrated from wknd.site */
+  --background-color: #fff;
+  --light-color: #ebebeb;
+  --dark-color: #202020;
+  --text-color: #202020;
+  --text-color-inverse: #ebebeb;
+  --link-color: #0045ff;
+  --link-hover-color: #0035cc;
 
-  /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  /* brand accent (WKND yellow) */
+  --brand-primary: #ffea00;
 
-  /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  /* fonts — Asar (headings) + Source Sans Pro (body) */
+  --body-font-family: "Source Sans Pro", "Helvetica Neue", helvetica, arial, sans-serif;
+  --heading-font-family: asar, georgia, "Times New Roman", times, serif;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  /* body sizes (mobile-first) */
+  --body-font-size-m: 17px;
+  --body-font-size-s: 15px;
+  --body-font-size-xs: 14px;
+
+  /* heading sizes (mobile-first) */
+  --heading-font-size-xxl: 34px;
+  --heading-font-size-xl: 30px;
+  --heading-font-size-l: 22px;
+  --heading-font-size-m: 17px;
+  --heading-font-size-s: 15px;
+  --heading-font-size-xs: 13px;
+
+  /* spacing */
+  --content-max-width: 1024px;
+  --section-padding: 40px;
 
   /* nav height */
   --nav-height: 64px;
-}
-
-/* fallback fonts */
-@font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
-}
-
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
 }
 
 @media (width >= 900px) {
@@ -60,13 +55,13 @@
     --body-font-size-s: 16px;
     --body-font-size-xs: 14px;
 
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
+    /* heading sizes — desktop scale from wknd.site (h1 40 / h2 36 / h3 24 / h4 16 / h5 14) */
+    --heading-font-size-xxl: 40px;
     --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+    --heading-font-size-l: 24px;
+    --heading-font-size-m: 16px;
+    --heading-font-size-s: 14px;
+    --heading-font-size-xs: 12px;
   }
 }
 
@@ -77,7 +72,7 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 body.appear {
@@ -108,7 +103,7 @@ h6 {
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.5;
   scroll-margin: 40px;
 }
 
@@ -251,20 +246,24 @@ button.button.secondary:disabled:focus-visible {
   color: var(--dark-color);
 }
 
-/* high-impact call-to-action */
+/* high-impact call-to-action — WKND brand yellow */
 a.button.accent,
 button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
-  color: var(--background-color);
+  border-color: var(--brand-primary);
+  border-radius: 0;
+  background-color: var(--brand-primary);
+  color: var(--text-color);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 a.button.accent:hover,
 a.button.accent:focus-visible,
 button.button.accent:hover,
 button.button.accent:focus-visible {
-  border-color: var(--link-hover-color);
-  background-color: var(--link-hover-color);
+  border-color: var(--text-color);
+  background-color: var(--text-color);
+  color: var(--brand-primary);
 }
 
 a.button.accent[aria-disabled="true"],
@@ -301,7 +300,7 @@ main > .section {
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: var(--content-max-width);
   margin: auto;
   padding: 0 24px;
 }
@@ -318,8 +317,32 @@ main > .section:first-of-type {
 
 /* section metadata */
 main .section.light,
+main .section.grey,
 main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
-  padding: 40px 0;
+  padding: var(--section-padding) 0;
+}
+
+main .section.dark {
+  background-color: var(--dark-color);
+  color: var(--text-color-inverse);
+  margin: 0;
+  padding: var(--section-padding) 0;
+}
+
+main .section.dark a:any-link {
+  color: var(--text-color-inverse);
+}
+
+/* section headings (default content) — WKND yellow underline accent
+   (source .cmp-title--underline). Scoped to default-content headings so it does
+   not affect block-internal titles. */
+main .section > .default-content-wrapper > h2::after,
+main .section > .default-content-wrapper > h3::after {
+  content: '';
+  display: block;
+  width: 84px;
+  margin-top: 8px;
+  border-bottom: 2px solid var(--brand-primary);
 }

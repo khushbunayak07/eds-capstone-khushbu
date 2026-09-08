@@ -1,0 +1,40 @@
+{
+  "variantName": "adventure-details",
+  "baseBlock": "table",
+  "version": "1.0.0",
+  "created": "2026-09-08T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.wknd.site/us/en/adventures/downhill-skiing-wyoming.html",
+    "originPage": "WKND adventure detail page (Downhill Skiing Wyoming)",
+    "blockPosition": "sidebar"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "metadata",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "repeating label/value pairs (2-column rows)",
+    "pairCount": 6,
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "adventure/trip detail metadata panels (activity, duration, difficulty, price, group size)",
+      "product/spec fact sheets rendered as label above bold value",
+      "any structured key/value stat sidebar"
+    ],
+    "notSuitableFor": [
+      "long-form prose or body copy (use default content)",
+      "grids of items with images (use cards)",
+      "side-by-side content layouts (use columns)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en/adventures/downhill-skiing-wyoming"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-08T00:00:00.000Z"
+  }
+}
