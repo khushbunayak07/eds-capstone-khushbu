@@ -1,0 +1,8 @@
+{
+  "name": "recent-articles",
+  "base": "custom",
+  "description": "Dynamic recent-articles listing: fetches the magazine query-index, sorts by date (newest first), and renders a card (image, title, description, link) for the latest 3 articles.",
+  "usage": {
+    "pages": ["/us/en"]
+  }
+}

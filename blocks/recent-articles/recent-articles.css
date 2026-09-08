@@ -1,0 +1,83 @@
+/* recent-articles — dynamic homepage grid built from the magazine query-index.
+ * Matches the WKND teaser look: responsive card grid with a cover image,
+ * uppercase title, and a single-line truncated description.
+ * All rules scoped to .recent-articles. */
+
+.recent-articles > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem 14px;
+  width: 100%;
+}
+
+.recent-articles > ul > li {
+  margin: 0;
+  padding: 0;
+  min-width: 0; /* keep grid tracks equal; let the description ellipsis work */
+  list-style: none;
+}
+
+/* image */
+.recent-articles .recent-articles-card-image {
+  margin: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.recent-articles .recent-articles-card-image a,
+.recent-articles .recent-articles-card-image picture {
+  display: block;
+}
+
+.recent-articles .recent-articles-card-image img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* body */
+.recent-articles .recent-articles-card-body {
+  margin: 0;
+}
+
+/* title */
+.recent-articles .recent-articles-card-body h3 {
+  margin: 1rem 0 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.recent-articles .recent-articles-card-body h3 a:any-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.recent-articles .recent-articles-card-body h3 a:hover {
+  text-decoration: underline;
+}
+
+/* description — dimgray, single-line truncated with ellipsis */
+.recent-articles .recent-articles-card-body p {
+  margin: 1rem 0 0;
+  color: dimgray;
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (width >= 600px) {
+  .recent-articles > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
