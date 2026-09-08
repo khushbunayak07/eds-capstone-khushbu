@@ -1,0 +1,83 @@
+/* adventures-list — dynamic adventure grid built from the adventures query-index.
+ * Matches the WKND teaser look: responsive card grid with a cover image,
+ * uppercase title, and a single-line truncated description.
+ * All rules scoped to .adventures-list. */
+
+.adventures-list > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 14px;
+  width: 100%;
+}
+
+.adventures-list > ul > li {
+  margin: 0;
+  padding: 0;
+  min-width: 0; /* keep grid tracks equal; let the description ellipsis work */
+  list-style: none;
+}
+
+/* image */
+.adventures-list .adventures-list-card-image {
+  margin: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.adventures-list .adventures-list-card-image a,
+.adventures-list .adventures-list-card-image picture {
+  display: block;
+}
+
+.adventures-list .adventures-list-card-image img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* body */
+.adventures-list .adventures-list-card-body {
+  margin: 0;
+}
+
+/* title */
+.adventures-list .adventures-list-card-body h3 {
+  margin: 1rem 0 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.adventures-list .adventures-list-card-body h3 a:any-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.adventures-list .adventures-list-card-body h3 a:hover {
+  text-decoration: underline;
+}
+
+/* description — dimgray, single-line truncated with ellipsis */
+.adventures-list .adventures-list-card-body p {
+  margin: 1rem 0 0;
+  color: dimgray;
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (width >= 900px) {
+  .adventures-list > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

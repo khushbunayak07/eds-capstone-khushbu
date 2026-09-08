@@ -1,0 +1,8 @@
+{
+  "name": "magazine-list",
+  "base": "custom",
+  "description": "Dynamic magazine article listing: fetches the magazine query-index, sorts by date (newest first), and renders a card (image, title, description, link) per row.",
+  "usage": {
+    "pages": ["/us/en/magazine"]
+  }
+}
