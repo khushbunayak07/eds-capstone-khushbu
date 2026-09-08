@@ -1,0 +1,41 @@
+{
+  "variantName": "cards-team",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-09-08T16:22:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.wknd.site/us/en/about-us.html",
+    "originPage": "About Us content page (contributors + guides)",
+    "blockPosition": "middle",
+    "selector": "section.experiencefragment.cmp-experience-fragment--contributor"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "team",
+    "imagePattern": "avatar"
+  },
+  "contentPattern": {
+    "structure": "circular avatar + name + role + social links",
+    "cardCount": 4,
+    "buttonCount": 3,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "team / contributor / staff grids with photo, name, role, social links",
+      "about pages listing people",
+      "guide or instructor rosters"
+    ],
+    "notSuitableFor": [
+      "article/adventure teaser grids with cover image + description (use cards-teaser)",
+      "single author byline (use author-bio)",
+      "single featured item (use columns/hero)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en/about-us"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-08T16:22:00.000Z"
+  }
+}

@@ -1,0 +1,84 @@
+/*
+ * cards-teaser — visual design migrated from wknd.site (.cmp-image-list)
+ * Source values extracted from clientlib-site.min.css. Scoped to .cards-teaser.
+ */
+
+/* container: source uses flex-wrap; equal-width teaser cards.
+   Mobile-first: 2-up, growing to 4-up on desktop (matches source 260px basis). */
+.cards-teaser > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+  gap: 2rem 14px;           /* row: source item margin-bottom 2rem; column: padding-right 14px */
+  width: 100%;
+}
+
+.cards-teaser > ul > li {
+  margin: 0;
+  padding: 0;
+  min-width: 0; /* allow grid tracks to stay equal; lets the ellipsis truncate */
+  list-style: none;
+}
+
+/* image: source .cmp-image__image — fixed 200px height, full-width cover */
+.cards-teaser .cards-teaser-card-image {
+  margin: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.cards-teaser .cards-teaser-card-image img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* body */
+.cards-teaser .cards-teaser-card-body {
+  margin: 0;
+  min-width: 0; /* enable the description ellipsis inside the grid track */
+}
+
+/* title: source .cmp-image-list__item-title — sans-serif body font, uppercase */
+.cards-teaser .cards-teaser-card-body h3 {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);   /* 18px desktop / 17px mobile */
+  font-weight: 600;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* title link inherits WKND item-title color (--textColor #202020) */
+.cards-teaser .cards-teaser-card-body h3 a:any-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.cards-teaser .cards-teaser-card-body h3 a:hover {
+  text-decoration: underline;
+}
+
+/* description: source .cmp-image-list__item-description — dimgray, uppercase,
+   14px, single-line truncated with ellipsis */
+.cards-teaser .cards-teaser-card-body p {
+  margin: 1rem 0 0;
+  color: dimgray;
+  font-size: var(--body-font-size-xs);   /* 14px */
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (width >= 900px) {
+  .cards-teaser > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

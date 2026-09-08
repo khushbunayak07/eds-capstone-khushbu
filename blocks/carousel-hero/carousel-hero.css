@@ -1,0 +1,176 @@
+/* Block: carousel-hero — design migrated from wknd.site (.cmp-carousel--hero / .cmp-teaser--hero) */
+
+/* Full-width breakout: source hero ignores the grid (padding-left/right:0 !important) */
+main .section > .carousel-hero-wrapper {
+  max-width: 100%;
+  padding: 0;
+}
+
+.carousel-hero {
+  position: relative;
+}
+
+.carousel-hero .carousel-hero-slides-container {
+  position: relative;
+}
+
+.carousel-hero .carousel-hero-slides,
+.carousel-hero .carousel-hero-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-hero .carousel-hero-slides {
+  display: flex;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+}
+
+.carousel-hero .carousel-hero-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each slide: image stacked on top, content below (source .cmp-teaser--hero is flex column-reverse; DOM has image first, so plain column) */
+.carousel-hero .carousel-hero-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+/* Image: full-width band, fixed height, cover (source 25pc = 400px mobile) */
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-image {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-image picture > img {
+  display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Content: source hero content padding 14px sides, sits below image on mobile */
+.carousel-hero .carousel-hero-slide .carousel-hero-slide-content {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  padding: 1em 14px 1.5em;
+  color: var(--text-color);
+  background-color: transparent;
+}
+
+/* Title: serif, h2 scale (source .cmp-teaser__title Asar, margin .5em 0) */
+.carousel-hero .carousel-hero-slide-content h2 {
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  margin: 0.5em 0 0;
+}
+
+/* Description: source .cmp-teaser__description 18px / line-height 1.75, no margins */
+.carousel-hero .carousel-hero-slide-content p {
+  font-size: 18px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* CTA: source .cmp-teaser__action-link — square yellow, uppercase.
+   These CTAs are plain <p><a> links (this project only buttonizes strong/em-wrapped
+   links), so style the anchor directly rather than relying on a.button. */
+.carousel-hero .carousel-hero-slide-content p:has(> a:only-child) {
+  margin: 1em 0;
+}
+
+.carousel-hero .carousel-hero-slide-content p > a:only-child:any-link {
+  display: inline-block;
+  border: 0;
+  border-radius: 0;
+  padding: 1em 2.5em;
+  background-color: var(--brand-primary);
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.carousel-hero .carousel-hero-slide-content p > a:only-child:hover,
+.carousel-hero .carousel-hero-slide-content p > a:only-child:focus-visible {
+  background-color: var(--text-color);
+  color: var(--brand-primary);
+  text-decoration: none;
+}
+
+/* Indicators: source dots 10px, #afafaf, active rgba(0,0,0,.8) */
+.carousel-hero .carousel-hero-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  margin: 0.5em 0 0;
+  background-color: transparent;
+  line-height: 0;
+}
+
+.carousel-hero .carousel-hero-slide-indicator {
+  margin: 0 7px;
+}
+
+.carousel-hero .carousel-hero-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: #afafaf;
+  font-size: 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.carousel-hero .carousel-hero-slide-indicator button:disabled,
+.carousel-hero .carousel-hero-slide-indicator button:hover,
+.carousel-hero .carousel-hero-slide-indicator button:focus-visible {
+  background-color: rgb(0 0 0 / 80%);
+}
+
+/* Source hero has no large overlay arrows — dots are the control */
+.carousel-hero .carousel-hero-navigation-buttons {
+  display: none;
+}
+
+@media (width >= 900px) {
+  /* Taller image band (source 40pc = 640px at >=1165px) */
+  .carousel-hero .carousel-hero-slide .carousel-hero-slide-image picture > img {
+    height: 640px;
+  }
+
+  /* White content card overlapping the bottom of the image (source margin-top:-180px, height:180px, width 71pc) */
+  .carousel-hero .carousel-hero-slide .carousel-hero-slide-content {
+    width: min(100%, 1136px);
+    min-height: 180px;
+    margin: -180px auto 0;
+    padding: 28px 28px 0;
+    background-color: var(--background-color);
+  }
+
+  /* Indicators align left within card region on desktop (source floats left with 14px inset on mobile; keep centered feel but tighten) */
+  .carousel-hero .carousel-hero-slide-indicators {
+    margin: 1em 0 0;
+  }
+}

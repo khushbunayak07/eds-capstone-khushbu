@@ -1,0 +1,14 @@
+{
+  "type": "da",
+  "sites": {
+    "eds-capstone-khushbu": {
+      "previewOrg": "khushbunayak07",
+      "previewSite": "eds-capstone-khushbu",
+      "contentHostUrl": "https://content.da.live/khushbunayak07/eds-capstone-khushbu/",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  },
+  "features": [
+    "site-planning"
+  ]
+}

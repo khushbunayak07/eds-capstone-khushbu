@@ -1,0 +1,78 @@
+/* author-bio — migrated from wknd.site article byline (.cmp-byline)
+ * Circular author photo beside the author's name, role, and social links.
+ * Preceded by a top separator rule (source .cmp-separator). Mobile-first. */
+
+.author-bio {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 40px 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--light-color);
+}
+
+.author-bio .author-bio-photo {
+  flex: 0 0 auto;
+}
+
+.author-bio .author-bio-photo img,
+.author-bio .author-bio-photo picture {
+  display: block;
+  width: 60px;   /* matches source .cmp-byline__image (60px circle) */
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-bio .author-bio-info {
+  min-width: 0;
+}
+
+/* author name */
+.author-bio .author-bio-info h1,
+.author-bio .author-bio-info h2,
+.author-bio .author-bio-info h3,
+.author-bio .author-bio-info h4 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+}
+
+/* role / occupation line */
+.author-bio .author-bio-info p {
+  margin: 4px 0 0;
+  color: dimgray;
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* social links */
+.author-bio .author-bio-social {
+  display: flex;
+  gap: 12px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.author-bio .author-bio-social a:any-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.author-bio .author-bio-social a:hover {
+  color: var(--brand-primary);
+}
+
+@media (width >= 900px) {
+  .author-bio {
+    gap: 28px;
+  }
+
+  .author-bio .author-bio-photo img,
+  .author-bio .author-bio-photo picture {
+    width: 72px;
+    height: 72px;
+  }
+}

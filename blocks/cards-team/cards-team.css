@@ -1,0 +1,97 @@
+/*
+ * cards-team — contributor/team-member grid, migrated from wknd.site
+ * (.cmp-experience-fragment--contributor). Centered circular avatars, name,
+ * role, and a row of social icon links. Scoped to .cards-team.
+ */
+
+.cards-team > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 2rem;
+  width: 100%;
+}
+
+.cards-team > ul > li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+/* avatar: source contributor image rendered as a centered circle */
+.cards-team .cards-team-card-image {
+  margin: 0 auto;
+  line-height: 0;
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.cards-team .cards-team-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cards-team .cards-team-card-body {
+  margin: 1rem 0 0;
+}
+
+/* name */
+.cards-team .cards-team-card-body h3 {
+  margin: 0.75rem 0 0;
+  font-size: var(--heading-font-size-l);
+}
+
+/* role / tagline */
+.cards-team .cards-team-card-body h5 {
+  margin: 0.5rem 0 0;
+  font-family: var(--body-font-family);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-color);
+}
+
+/* social links: horizontal row of icon links */
+.cards-team .cards-team-social {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.cards-team .cards-team-social li {
+  margin: 0;
+}
+
+.cards-team .cards-team-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--dark-color);
+  color: var(--background-color);
+  text-decoration: none;
+  overflow: hidden;
+  font-size: 0; /* hide the text label; the square is the icon affordance */
+}
+
+.cards-team .cards-team-social a:hover {
+  background-color: var(--link-color, #1473e6);
+}
+
+@media (width >= 900px) {
+  .cards-team > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

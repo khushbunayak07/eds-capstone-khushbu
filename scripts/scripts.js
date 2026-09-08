@@ -143,6 +143,40 @@ function decorateButtons(main) {
 }
 
 /**
+ * Applies Section Metadata blocks as section classes/styles.
+ * This project's vendored aem.js `decorateSections` does not process
+ * `.section-metadata` blocks, so a `style: grey` metadata block would otherwise
+ * render as visible text. This reproduces the standard EDS behavior: read each
+ * `.section-metadata` block, apply its `style` values (space-separated) as
+ * classes on the parent section, and remove the block from the DOM.
+ * @param {Element} main The main element
+ */
+function decorateSectionMetadata(main) {
+  main.querySelectorAll('.section .section-metadata').forEach((metaBlock) => {
+    const section = metaBlock.closest('.section');
+    if (!section) return;
+    const meta = {};
+    metaBlock.querySelectorAll(':scope > div').forEach((row) => {
+      const cells = row.querySelectorAll(':scope > div');
+      if (cells.length >= 2) {
+        const key = cells[0].textContent.trim().toLowerCase();
+        const value = cells[1].textContent.trim();
+        if (key) meta[key] = value;
+      }
+    });
+    if (meta.style) {
+      meta.style.split(',').forEach((s) => {
+        const cls = s.trim().toLowerCase().replace(/\s+/g, '-');
+        if (cls) section.classList.add(cls);
+      });
+    }
+    // remove the metadata wrapper (and the block) from the rendered section
+    const wrapper = metaBlock.closest('.section-metadata-wrapper');
+    (wrapper || metaBlock).remove();
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -151,6 +185,7 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateSectionMetadata(main);
   decorateBlocks(main);
   decorateButtons(main);
 }

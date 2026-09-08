@@ -1,0 +1,36 @@
+/* adventure-details — migrated from wknd.site trip-details panel
+ * (.cmp-contentfragment__elements). Each row is a label/value pair with a grey
+ * left border accent, uppercase label (dimgray) above a bold value. */
+
+.adventure-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: var(--body-font-family);
+}
+
+.adventure-details .adventure-details-item {
+  padding-left: 16px;
+  border-left: 5px solid var(--light-color); /* source #ebebeb */
+  text-transform: uppercase;
+}
+
+.adventure-details .adventure-details-label {
+  margin: 0;
+  color: dimgray;
+  font-size: var(--body-font-size-xs);
+  letter-spacing: 0.04em;
+}
+
+.adventure-details .adventure-details-value {
+  margin: 4px 0 0;
+  color: var(--text-color);
+  font-size: var(--body-font-size-xs); /* 14px */
+  font-weight: 600;
+}
+
+@media (width >= 900px) {
+  .adventure-details {
+    gap: 24px;
+  }
+}
