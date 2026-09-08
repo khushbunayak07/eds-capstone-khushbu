@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.wknd.site/ca/en/magazine/members-only/alaskan-adventure.html",
+  "path": "ca/en/magazine/members-only/alaskan-adventure",
+  "timestamp": "2026-09-08T16:46:58.651Z",
+  "title": "Alaskan Adventure",
+  "template": "article-detail",
+  "blocks": [
+    "author-bio"
+  ]
+}
