@@ -346,3 +346,11 @@ main .section > .default-content-wrapper > h3::after {
   margin-top: 8px;
   border-bottom: 2px solid var(--brand-primary);
 }
+
+/* article-detail template — the source renders long-form article body copy
+   with an airy 2.5x line-height (18px text / 45px leading). Scoped to
+   body.article-detail (set via the page's Template metadata) so it only
+   affects article pages, not body text elsewhere. */
+body.article-detail main .section > .default-content-wrapper p {
+  line-height: 2.5;
+}
