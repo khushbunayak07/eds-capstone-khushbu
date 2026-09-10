@@ -42,7 +42,7 @@
 .author-bio .author-bio-info p {
   margin: 4px 0 0;
   color: dimgray;
-  font-size: var(--body-font-size-xs);
+  font-size: 12px; /* matches source .cmp-byline__occupation */
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }

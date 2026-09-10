@@ -14,6 +14,12 @@ export default function transform(hookName, element, payload) {
     // Verified in cleaned.html: <div id="toggleNav"> (line 568), <div id="mobileNav"> (line 574)
     WebImporter.DOMUtils.remove(element, ['#toggleNav', '#mobileNav']);
 
+    // Content-fragment titles (e.g. article-detail body) are hidden on the
+    // source (h3.cmp-contentfragment__title has display:none) — they repeat
+    // the CF's internal name and are not authored page content. Drop them so
+    // they don't surface as a stray heading above the article body.
+    WebImporter.DOMUtils.remove(element, ['.cmp-contentfragment__title']);
+
     // Tabbed FILTER (adventures listing only): the category tabs are a
     // client-side filter — every non-active panel is a duplicate subset of the
     // active ("All") panel that holds a card grid (.image-list). Remove those
