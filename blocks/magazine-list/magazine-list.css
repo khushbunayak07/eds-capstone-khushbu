@@ -51,13 +51,13 @@
   margin: 1rem 0 0;
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.5;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .magazine-list .magazine-list-card-body h3 a:any-link {
-  color: var(--text-color);
+  color: var(--link-color);
   text-decoration: none;
 }
 
