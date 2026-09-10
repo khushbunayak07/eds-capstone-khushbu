@@ -131,6 +131,22 @@ export default {
     const hr = document.createElement('hr');
     main.appendChild(hr);
     WebImporter.rules.createMetadata(main, document);
+    // Tag the page with its template so EDS adds an `adventure-detail` body class
+    // (aem.js decorateTemplateAndTheme reads the `template` metadata). This lets
+    // article-only styling (e.g. the airy body line-height) be scoped to
+    // `body.adventure-detail` without affecting other templates. createMetadata
+    // appends a Metadata <table> to main; add a Template row to the last one.
+    const metaTables = main.querySelectorAll('table');
+    const metaTable = metaTables[metaTables.length - 1];
+    if (metaTable) {
+      const tr = document.createElement('tr');
+      const th = document.createElement('td');
+      th.textContent = 'Template';
+      const td = document.createElement('td');
+      td.textContent = PAGE_TEMPLATE.name;
+      tr.append(th, td);
+      (metaTable.querySelector('tbody') || metaTable).append(tr);
+    }
     WebImporter.rules.transformBackgroundImages(main, document);
     WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
 

@@ -18,7 +18,7 @@
 .adventure-details .adventure-details-label {
   margin: 0;
   color: dimgray;
-  font-size: var(--body-font-size-xs);
+  font-size: 12px; /* matches source .cmp-contentfragment__element-title */
   letter-spacing: 0.04em;
 }
 
