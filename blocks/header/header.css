@@ -343,9 +343,10 @@ header.header-wrapper {
   }
 
   .header nav {
+    /* source main nav-bar row ≈ 68.6px */
     grid-template:
       'utility utility utility' 40px
-      'brand sections tools' var(--nav-height) / auto 1fr auto;
+      'brand sections tools' 68px / auto 1fr auto;
     gap: 0 32px;
     padding: 0 32px;
   }
@@ -387,7 +388,7 @@ header.header-wrapper {
 
   .header nav .nav-sections ul {
     display: flex;
-    gap: 32px;
+    gap: 0; /* source links touch; the 17px link side-padding gives the 34px text-to-text spacing */
     width: auto;
   }
 
