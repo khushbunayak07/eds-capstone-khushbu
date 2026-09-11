@@ -29,21 +29,15 @@ function resolveIndexPath(block) {
 }
 
 /**
- * Parse a date value into a sortable timestamp.
- * Handles ISO strings, epoch seconds/millis, and empty values (sort last).
+ * Parse a YYYY-MM-DD date string into a sortable timestamp.
+ * Empty or unparseable dates return -Infinity so they sort last in the
+ * date-descending order.
  * @param {*} value
  * @returns {number}
  */
 function toTimestamp(value) {
-  if (value === undefined || value === null || value === '') return -Infinity;
-  if (typeof value === 'number') {
-    return value < 1e12 ? value * 1000 : value;
-  }
-  const num = Number(value);
-  if (!Number.isNaN(num) && String(value).trim() !== '') {
-    return num < 1e12 ? num * 1000 : num;
-  }
-  const parsed = Date.parse(value);
+  if (!value || String(value).trim() === '') return -Infinity;
+  const parsed = Date.parse(String(value).trim());
   return Number.isNaN(parsed) ? -Infinity : parsed;
 }
 
